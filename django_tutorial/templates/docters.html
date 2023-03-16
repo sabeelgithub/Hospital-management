@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{%block title%}
+Doctors
+{%endblock%}
+
+{%block content%}
+<div class="top"  style = "height:200vh;width:100%;background-image:url({% static '/images/login.jpg'%}) ;background-repeat: no-repeat;background-size: cover" >   
+<h1 class="text-center">Our Doctors</h1>
+<hr>
+<div class="container text-center bg-light mb-5">
+    {% for d in docters %}
+
+<div class="card text-center mx-3 my-3" style="width: 18rem; display:inline-block" >
+    <img src="{{d.doc_image.url}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Dr.{{d.doc_name}}</h5>
+      <p class="card-text">{{d.doc_spec}}.</p>
+      <h6>{{d.dep_name}} Department</h6>
+   
+    </div>
+  </div>
+
+{%endfor%}
+</div>
+</div>
+
+
+
+{%endblock%}
